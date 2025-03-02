@@ -1,0 +1,116 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.slidebar{
+    width: 30vw;
+    position: absolute;
+    top: 0;
+    background-color: #d6d6d6;
+    height: 100vh;
+}
+.top{
+  background-color: #a8a8a8;
+  padding: 0 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.top span{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #82a7a7;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(29, 29, 29, 0.1);
+    border: 1px solid rgb(190, 190, 190);
+  }
+ .Logo-ham{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+ }
+  .logo-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+  }
+  
+  .logo:hover{
+    border: 2px solid rgb(255, 255, 255);
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .search-bar input {
+    border: none;
+    padding: 10px;
+    outline: none;
+    width: 400px;
+    font-size: 16px;
+    transition: padding-top 0.3s ease-in-out;
+  }
+  
+  .search-bar button {
+    background: #da9227;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 11px;
+  }
+  .search-bar button:hover{
+    background-color: #c25252;
+  }
+  .search-bar input::placeholder {
+    color: #aaa;
+    transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out;
+  }
+  .search-bar input:focus::placeholder {
+    transform: translateY(-10px);
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .auth-buttons .btn {
+    position: relative;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: large;
+    transition: color 0.3s ease-in-out;
+    font-weight: bolder;
+    
+  }
+  
+  .auth-buttons .btn::after {
+    content: "";
+    width: 90%;
+    height: 2px;
+    position: absolute;
+    left: 2px;
+    bottom: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .auth-buttons .btn:hover::after {
+    transform: scaleX(1);
+    background-color: #000000;
+  }
+  
+  .auth-buttons .btn:hover{
+    border: 1px solid white;
+    color: rgb(253, 253, 253);
+  }
