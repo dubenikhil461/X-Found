@@ -2,28 +2,41 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
-  const [formData, setFormData] = useState({ username: "", email: "", password: "" });
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({ username: "", password: "" });
 
   const validateUsername = (username) => /^[a-z]+$/.test(username);
-  const validatePassword = (password) => /^(?=.*[A-Z])(?=.*[\W]).{1,15}$/.test(password);
+  const validatePassword = (password) =>
+    /^(?=.*[A-Z])(?=.*[\W]).{1,15}$/.test(password);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setErrors((prev) => ({
       ...prev,
-      [name]: name === "username" && !validateUsername(value) ? "Username must be lowercase." : "",
-      password: name === "password" && !validatePassword(value) 
-        ? "Password must start with an uppercase letter, contain a special character, and be max 15 characters."
-        : "",
+      [name]:
+        name === "username" && !validateUsername(value)
+          ? "Username must be lowercase."
+          : "",
+      password:
+        name === "password" && !validatePassword(value)
+          ? "Password must start with an uppercase letter, contain a special character, and be max 15 characters."
+          : "",
     }));
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateUsername(formData.username) || !validatePassword(formData.password)) return;
+    if (
+      !validateUsername(formData.username) ||
+      !validatePassword(formData.password)
+    )
+      return;
     console.log("Signup form submitted", formData);
     setMessage("Signup successful! You can now log in.");
   };
@@ -36,8 +49,6 @@ const Signup = () => {
     height: "100vh",
     backgroundColor: "#f4f4f4",
   };
-
- 
 
   const cardStyle = {
     backgroundColor: "#fff",
@@ -82,8 +93,7 @@ const Signup = () => {
 
   return (
     <div style={containerStyle}>
-      
-      <div >
+      <div>
         <Link to="/Home">
           <img src="/assets/logo.webp" alt="logo" style={{ height: "60px" }} />
         </Link>
@@ -126,11 +136,15 @@ const Signup = () => {
           />
           {errors.password && <p style={errorStyle}>{errors.password}</p>}
 
-          <button type="submit" style={buttonStyle}>Sign Up</button>
+          <button type="submit" style={buttonStyle}>
+            Sign Up
+          </button>
         </form>
         <p>
           Already have an account?{" "}
-          <Link to="/login" style={linkStyle}>Login</Link>
+          <Link to="/login" style={linkStyle}>
+            Login
+          </Link>
         </p>
       </div>
     </div>

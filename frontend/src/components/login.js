@@ -59,14 +59,14 @@ const Login = () => {
 
   return (
     <div style={containerStyle}>
-      {/* Logo */}
+ 
       <div>
         <Link to="/Home">
           <img src="/assets/logo.webp" alt="logo" style={{ height: "50px" }} />
         </Link>
       </div>
 
-      {/* Login Card */}
+ 
       <div style={cardStyle}>
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
