@@ -1,1 +1,3 @@
 # X-Found
+X-Found App - Lost & Exchange Platform
+X-Found is a web-based platform designed for students to buy, sell, and exchange usable items at affordable prices while also helping users report and find lost property. The platform connects senior and junior students across engineering colleges, enabling seamless item trading and lost property recovery. Users can register, authenticate, and upload images of lost/found items or products for sale. The app features a secure OTP-based login system, an admin panel for management, and smooth user interactions through a well-designed MERN stack application.
