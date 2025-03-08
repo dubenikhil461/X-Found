@@ -2,9 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faSignInAlt,
+  faUserPlus ,
   faUser,
   faClose,
-  faTachometerAlt,
+  faHome,
+  faHeart,
+  faPlusCircle,
+  faList,
+  faBoxOpen,
+  faHandshake,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "./Home.css";
@@ -56,47 +63,71 @@ function Home() {
 
   return (
     <>
-      {/* Sidebar */}
-      <div className={`slidebar ${isSidebarOpen ? "open" : ""}`}>
-        <div className="top">
-          <FontAwesomeIcon icon={faUser} size="2x" color="black" />
-          <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-            {user ? `Hello, ${user.name}` : "Hello User"}
+    <div className={`slidebar ${isSidebarOpen ? "open" : ""}`}>
+      <div className="top">
+        <div className="user-profile">
+          <FontAwesomeIcon icon={faUser} size="2x" color="white" />
+          <span className="user-greeting">
+            {user ? `Hello, ${user.name}` : "Hello Guest"}
           </span>
-          <FontAwesomeIcon
-            className="close"
-            icon={faClose}
-            size="2x"
-            color="black"
-            onClick={toggleSidebar}
-          />
         </div>
-
-        {user && (
-          <div className="sidebar-menu">
+        <FontAwesomeIcon
+          className="close"
+          icon={faClose}
+          size="2x"
+          color="white"
+          onClick={toggleSidebar}
+        />
+      </div>
+    
+      <div className="sidebar-menu">
+        {user ? (
+          <>
             <Link to="/dashboard" className="sidebar-link">
-              <FontAwesomeIcon icon={faTachometerAlt} /> Dashboard
+              <FontAwesomeIcon icon={faHome} /> Home
+            </Link>
+            <Link to="/my-listings" className="sidebar-link">
+              <FontAwesomeIcon icon={faList} /> My Listings
+            </Link>
+            <Link to="/post-item" className="sidebar-link">
+              <FontAwesomeIcon icon={faPlusCircle} /> Post New Item
+            </Link>
+            <Link to="/favorites" className="sidebar-link">
+              <FontAwesomeIcon icon={faHeart} /> Favorites
+            </Link>
+            <Link to="/my-exchanges" className="sidebar-link">
+              <FontAwesomeIcon icon={faHandshake} /> My Exchanges
+            </Link>
+            <Link to="/orders" className="sidebar-link">
+              <FontAwesomeIcon icon={faBoxOpen} /> Orders
             </Link>
             <button className="logout-btn" onClick={handleLogout}>
-              Logout
+              <FontAwesomeIcon icon={faClose} /> Logout
             </button>
+          </>
+        ) : (
+          <div className="auth-links">
+            <Link to="/login" className="sidebar-link auth-link">
+              <FontAwesomeIcon icon={faSignInAlt} /> Login
+            </Link>
+            <Link to="/signup" className="sidebar-link auth-link">
+              <FontAwesomeIcon icon={faUserPlus} /> Sign Up
+            </Link>
           </div>
         )}
       </div>
+    </div>
 
       {/* Header */}
       <header className="header">
         <div className="Logo-ham">
-          <div onClick={toggleSidebar} style={{ cursor: "pointer" }}>
-            {/* Hamburger Icon */}
+          <div onClick={toggleSidebar} className="hamburger-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
+              width="30"
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="black"
-              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             >

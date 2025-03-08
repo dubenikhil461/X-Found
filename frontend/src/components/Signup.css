@@ -1,0 +1,149 @@
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.logo {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.signup-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.signup-input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.signup-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.signup-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-button:hover {
+  background-color: #0056b3;
+}
+
+.login-link {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.login-link:hover {
+  color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.success-message {
+  color: green;
+  margin-bottom: 15px;
+}
+
+.password-input-container {
+  position: relative;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.password-input-container .signup-input {
+  margin: 0;
+ 
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.password-toggle-btn:hover {
+  color: #007bff;
+}
+
+.password-toggle-btn:focus {
+  outline: none;
+}
+.input-container {
+  position: relative;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.input-container .signup-input {
+  margin: 0;
+}
+
+.input-container .error-message {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 5px;
+  padding: 5px;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-radius: 4px;
+}
+@media (max-width: 480px) {
+  .signup-card {
+    width: 90%;
+    max-width: 350px;
+    padding: 20px;
+  }
+
+  .signup-input {
+    font-size: 14px;
+  }
+
+  .signup-button {
+    font-size: 14px;
+  }
+}
