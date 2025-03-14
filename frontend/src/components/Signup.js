@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate  } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 import "./Signup.css";
 
+
 const Signup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     emailOrPhone: "", // Changed from email to emailOrPhone
@@ -48,15 +51,18 @@ const Signup = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      !validateUsername(formData.username) ||
-      !validatePassword(formData.password)
-    )
-      return;
-    console.log("Signup form submitted", formData);
-    setMessage("Signup successful! You can now log in.");
+    try {
+      await axios.post("http://localhost:5000/api/auth/register", formData);
+      setMessage("Signup successful! You can now log in.");
+      navigate("/login");
+    } catch (error) {
+      setErrors({
+        ...errors,
+        general: error.response?.data?.message || "An error occurred",
+      });
+    }
   };
 
   return (

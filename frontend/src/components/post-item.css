@@ -1,0 +1,126 @@
+.post-item-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-item-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  .post-item-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group label {
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .post-item-container {
+      margin: 1rem;
+      padding: 1rem;
+    }
+  }
+  /* Add these styles to your existing CSS */
+.image-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .image-input {
+    display: none;
+  }
+  
+  .image-upload-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .image-upload-label:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+  }
+  
+  .image-preview {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .image-preview img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .submit-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }

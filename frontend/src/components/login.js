@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate  } from "react-router-dom";
+import axios from "axios";
 import "./login.css";
 
 const Login = () => {
   const [formData, setFormData] = useState({ emailOrPhone: "", password: "" });
   const [errors, setErrors] = useState({ emailOrPhone: "", password: "" });
-
+   const navigate = useNavigate(); 
   const validateEmailOrPhone = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^[0-9]{10}$/;
@@ -23,12 +24,20 @@ const Login = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateEmailOrPhone(formData.emailOrPhone)) return;
-    console.log("Login form submitted", formData);
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      localStorage.setItem('token', response.data.token);
+      // Redirect to dashboard or home page
+      navigate('/');
+    } catch (error) {
+      setErrors({
+        ...errors,
+        general: error.response?.data?.message || 'An error occurred'
+      });
+    }
   };
-
   return (
     <div className="login-container">
       <div className="logo-container">
